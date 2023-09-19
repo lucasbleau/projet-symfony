@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+
+    <div class="detail">
+
+        <h1>Bonjour {{ etudiant.prenom }}</h1>
+
+        <li>Prénom : {{ etudiant.prenom }}</li>
+        <li>Nom : {{ etudiant.nom }}</li>
+        <li>Email : {{ etudiant.email }}</li>
+        <li>Date de naissance : </li>
+    </div>
+
+{% endblock %}
