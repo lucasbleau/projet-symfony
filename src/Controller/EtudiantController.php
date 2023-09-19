@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Etudiant;
 use App\Repository\EtudiantRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,8 +23,8 @@ class EtudiantController extends AbstractController
         ]);
     }
 
-    #[Route('/etudiant/{id}', name: 'app_etudiant_id')]
-    public function detailEtudiant(EtudiantRepository $etudiantRepository, $id): Response
+    #[Route('/etudiants/{id}', name: 'app_etudiant_id', requirements:['id' => '\d+'])]
+    public function detailEtudiant(EtudiantRepository $etudiantRepository,int $id): Response
     {
         $etudiant = $etudiantRepository->find($id) ;
 
@@ -33,5 +34,16 @@ class EtudiantController extends AbstractController
         ]) ;
     }
 
+    #[Route('/etudiants/mineurs', name: 'app_etudiant_mineurs_list')]
+    public function listMineurs(EtudiantRepository $etudiantRepository): Response
+    {
+        // Appel au modèle
+        $etudiants = $etudiantRepository->findMineurs2();
+
+        // Appel à la vue
+        return $this->render('etudiant/index.html.twig', [
+            'etudiants' => $etudiants
+        ]) ;
+    }
 }
 

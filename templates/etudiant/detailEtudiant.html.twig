@@ -11,7 +11,8 @@
         <li>Prénom : {{ etudiant.prenom }}</li>
         <li>Nom : {{ etudiant.nom }}</li>
         <li>Email : {{ etudiant.email }}</li>
-        <li>Date de naissance : </li>
+        <li>Né(e) le : {{ etudiant.dateNaissance |date('d/m/y') }}</li>
+        <li>Age : {{ etudiant.age }}</li>
     </div>
 
 {% endblock %}
