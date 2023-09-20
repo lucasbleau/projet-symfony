@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PromotionController!{% endblock %}
+
+{% block body %}
+
+    <h1>Liste des promotion</h1>
+
+    <ul>
+        {% for promotion in promotions %}
+            <li><a href=""></a>{{ promotion.nom }}</li>
+        {% endfor %}
+    </ul>
+
+
+{% endblock %}
